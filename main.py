@@ -88,8 +88,8 @@ vacuum = 0
 def input(event):
     initial()
     key = event.char
-    #sleep helps keep inputs from overlapping.
-    sleep = 0.3
+    #sleep sets how long any given input will run for
+    sleep = 1
 
     if key.lower() == 'w':
         forward(sleep)
