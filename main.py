@@ -69,11 +69,20 @@ def vacuum(x, y):
     #if y is 0, turn on vacuum, if y is 2 turn off vacuum
     if (y == 0):
         gpio.output(2, True)
+<<<<<<< HEAD
         gpio.output(12,True)
+=======
+        gpio.output(12, True)
+
+>>>>>>> c37716a061558b87535f96e21cb7909e78f4743b
         y = 1
     else:
         gpio.output(2, False)
         gpio.output(12, False)
+<<<<<<< HEAD
+=======
+
+>>>>>>> c37716a061558b87535f96e21cb7909e78f4743b
         y = 0
     time.sleep(x)
     gpio.cleanup()
