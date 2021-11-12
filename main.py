@@ -5,13 +5,16 @@ import time
 
 #beginning state of movement. Sets up the positions 7,11,13,15. For context, the motors
 #We are using are connected to those same 4 locations on the electrical grid
-#Meaing that the changes of True/False will impact the 4 motors
+#Meaing that the changes of True/False will impact the 4 motors depending on the true/false setup of the 4 motors
+#pins 2 and 12 deal with the vacuum and rotating spinner
 def initial():
     gpio.setmode(gpio.BOARD)
     gpio.setup(7, gpio.OUT)
     gpio.setup(11, gpio.OUT)
     gpio.setup(13, gpio.OUT)
     gpio.setup(15, gpio.OUT)
+    gpio.setup(2, gpio.OUT)
+    gpio.setup(12, gpio.OUT)
 
 #This function at first sets the cart to its initial state, then uses the 4 given
 #inputs. (The 4 inputs arranged in this True/False way will cause the wheels to move the cart forward)
@@ -66,9 +69,11 @@ def vacuum(x, y):
     #if y is 0, turn on vacuum, if y is 2 turn off vacuum
     if (y == 0):
         gpio.output(2, True)
+        gpio.output(12,True)
         y = 1
     else:
         gpio.output(2, False)
+        gpio.output(12, False)
         y = 0
     time.sleep(x)
     gpio.cleanup()
