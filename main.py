@@ -75,8 +75,6 @@ def vacuum(x, y):
         gpio.output(2, False)
         gpio.output(12, False)
         y = 0
-    time.sleep(x)
-    gpio.cleanup()
     #this return updates wether or not vacuum is on
     return y
 
